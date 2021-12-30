@@ -1,0 +1,208 @@
+.header {
+    position: relative;
+    background: linear-gradient(90.22deg, #9999FF 10%, #D7D0FF 100%, #D7D0FF 100%);
+    z-index: 1000;
+
+    .inner  {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $base*5;
+        padding-bottom: $base*5;
+
+        &.active::before {
+            content: "";
+            position: fixed;
+            top: 20%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,.4);
+            z-index: 0;
+        }
+    }
+
+    .active {
+        display: flex;
+    }
+
+    &__logo {
+        width: 100%;
+        transition: .2s;
+
+        &:hover {
+            width: 105%;  
+            transition: .2s;
+        }
+    }
+
+    &-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0 auto;
+        
+
+        &__link {
+            position: relative;
+            color: #333336;
+            text-decoration: none;
+            font-weight: $fw-regular;
+            margin: 0 $base*6;
+
+            &--active {
+                font-weight: $fw-medium;
+            }
+        }
+
+        &__search {
+            display: none;
+            padding-bottom: $base*4;
+        }
+    }
+
+    &__profile-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 11.4px;
+        cursor: pointer;
+    }
+
+    &__profile-content {
+        position: relative;
+    }
+
+    &__profile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: -20%;
+        align-items: center;
+        flex-direction: column;
+        width: $base*20;
+        height: $base*19;
+        background-color: #5865F2;
+        border-radius: 10px;
+        
+        .line {
+            width: 100%;
+            height: 3px;
+            background-color: #D7D0FF;
+            margin-top: $base*2;
+        }
+
+        &.active {
+            display: flex;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: #fff;
+            margin-top: $base*2.5;
+        }
+    }
+
+    &-burger {
+        display: none;
+        align-items: center;
+        position: absolute;
+        right: $base*25;
+        top: 31px;
+        overflow: hidden;
+        border: none;
+        margin: 0;
+        width: 30px;
+        height: 30px;
+        font-size: 0;
+        cursor: pointer;
+
+
+        &__line {
+            display: block;
+             position: absolute;
+            top: 15px;
+            right: 0px;
+            width:22px;
+            height: 3.5px;
+            background-color: #333336;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                left: 0;
+                height: 3.5px;
+                background: #333336;
+            }
+
+            &::before {
+                top: -8px;
+                width: 100%;
+            }
+
+            &::after {
+                top: 8px;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width:$screen-lg) {
+
+        &-burger {
+            display: block;
+        }
+
+        &-nav {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: #9999FF;
+            box-shadow: 0 1px 6px #333336;
+            padding: 1.5rem 0;
+
+            &__link {
+                font-size: 18px;
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: $base*6;
+            }
+        }
+    }
+
+    @media (max-width:$screen-x-sm) {
+
+        &-nav__search {
+            display: flex;
+        }
+
+        &__profile-menu {
+            width: $base*13;
+            height: $base*18;
+            right: -2%;
+        }
+
+        &-burger {
+            position: absolute;
+            right: $base*22;
+        }
+    }
+
+    @media (max-width:290px) {
+        &__logo {
+            max-width: 75%;
+        }
+
+        &__profile-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 11.4px;
+        }
+    }
+}

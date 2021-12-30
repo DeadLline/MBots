@@ -1,0 +1,42 @@
+.footer {
+    position: relative;
+    
+    z-index: 999;
+
+    .inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 1%;     
+        background-color: #5865F2;
+        height: $base*45;
+        border-radius: $base*10 $base*10 0 0;
+    }
+
+
+    &__title {
+       position: absolute;
+       top: 50%;
+       color: #fff;
+
+       span {
+           font-weight: $fw-extrabold;
+       }
+    }
+
+    @media (max-width:$screen-lg){
+        &__title {
+            font-size: 35px; 
+        }
+    }
+
+    @media (max-width:$screen-sm){
+        &__title {
+            font-size: 28px; 
+            text-align: center;
+        }
+    }
+}
